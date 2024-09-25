@@ -43,9 +43,29 @@
         transition: background-color 0.3s ease;
     }
 
-        .card button:hover {
-            background-color: #333;
-        }
+.card button:hover {
+    background-color: #333;
+}
+
+.createpos {
+    display: flex;
+    justify-content: flex-end; /* จัดให้อยู่ทางขวา */
+    margin: 20px; /* เพิ่มระยะห่าง */
+}
+
+.button-createpost {
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม */
+    color: white; /* สีข้อความ */
+    padding: 10px 20px; /* เพิ่มขนาดของปุ่ม */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    border-radius: 5px; /* ขอบโค้งมน */
+    font-size: 16px;
+}
+
+.button-createpost:hover {
+    background-color: #45a049; /* เปลี่ยนสีเมื่อ hover */
+}
+
 @media (max-width: 1050px) {
     .card-container {
         grid-template-columns: repeat(3, 1fr);
