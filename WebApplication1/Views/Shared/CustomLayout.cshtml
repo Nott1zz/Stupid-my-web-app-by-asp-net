@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <div class="login-container">
+        <div class="tabs">
+            <a class="tab" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="tab" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+            <a class="tab" asp-area="" asp-controller="Login" asp-action="Register">Registration</a>
+        </div>
+        <div class="login-content">
+            @RenderBody()
+        </div>
+
+    </div>
+    <script src="~/js/login.js" asp-append-version="true"></script>
+</body>
+</html>

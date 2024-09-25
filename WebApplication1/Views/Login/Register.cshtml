@@ -1,0 +1,25 @@
+﻿@model User;
+@{
+    Layout = "~/Views/Shared/CustomLayout.cshtml";
+}
+
+            <div class="login-image">
+                <img src="~/img/register.jpg" alt="Character Image">
+            </div>
+
+            <div class="login-form">
+                <h1>Welcome</h1>
+                <form method="post" asp-controller="Login" asp-action="Register">
+                    <div class="input-group">
+            <input type="email" id="Email" asp-for="Email" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="username" asp-for="UserName" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" asp-for="Password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn-submit">Register</button>
+                </form>
+            </div>
+

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Profile.css" />
+}
+<div class="profile-container">
+    <div class="profile-display">
+        <img src="~/img/avartar2.png" alt="Profile Avatar">
+        <div class="field">
+            <span class="label">Name:</span> <span class="value">John Doe</span>
+        </div>
+        <div class="field">
+            <span class="label">Age:</span> <span class="value">25</span>
+        </div>
+        <div class="field">
+            <span class="label">Gmail:</span> <span class="value">john.doe@gmail.com</span>
+        </div>
+        <div class="field">
+            <span class="label">Description:</span> <span class="value">Software Developer</span>
+        </div>
+        <div class="field">
+            <span class="label">Password:</span> <span class="value">********</span>
+        </div>
+        <div class="buttonzone">
+            <a asp-controller="Profile" asp-action="EditProfile" class="button">Edit</a>
+            <a href="#" class="button cancel">Cancel</a>
+        </div>
+    </div>
+</div>

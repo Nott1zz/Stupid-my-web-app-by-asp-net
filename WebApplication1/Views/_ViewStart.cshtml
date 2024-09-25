@@ -1,0 +1,13 @@
+﻿@{
+    var userStatus = ViewBag.UserStatus;
+}
+
+@if (userStatus != null)
+{
+    Layout = "_Layout";
+}
+else
+{
+    Layout = "Menubar_index";
+}
+

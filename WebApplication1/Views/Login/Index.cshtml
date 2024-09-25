@@ -1,0 +1,34 @@
+﻿@model User;
+
+@{
+    Layout = "~/Views/Shared/CustomLayout.cshtml";
+}
+
+<div class="login-form">
+    <h1>Welcome</h1>
+    <form method="post" asp-controller="Login" asp-action="Index">
+        <div class="input-group">
+            <input type="text" id="username" asp-for="UserName" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" asp-for="Password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn-submit">Login</button>
+    </form>
+
+    @if (!ViewData.ModelState.IsValid) // แสดงข้อความ error ถ้ามี
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+<div class="login-image">
+    <img src="~/img/login.jpg" alt="Character Image">
+</div>
