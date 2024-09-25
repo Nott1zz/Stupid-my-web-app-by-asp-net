@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "La7Aobw7GYU=",
+  "dgSpecHash": "HNXGg64a6Eg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vsook\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\vsook\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
