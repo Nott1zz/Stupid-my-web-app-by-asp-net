@@ -1,4 +1,4 @@
-﻿
+﻿@model WebApplication1.Models.User
 @{
     ViewData["Title"] = "EditProfile";
 }
@@ -9,26 +9,26 @@
     <h1>Edit Profile</h1>
     <div class="profile-edit">
         <img src="~/img/avartar1.png" alt="Profile Avatar">
-        <form class="edit-form">
+        <form asp-action="EditProfile" asp-controller="Profile" method="post">
             <div class="field">
                 <label>Name:</label>
-                <input type="text" value="John Doe">
+                <input type="text" asp-for="UserName" required>
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="field">
                 <label>Age:</label>
-                <input type="number" value="25">
+                <input type="number" asp-for="Age">
+                <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="field">
-                <label>Gmail:</label>
-                <input type="email" value="john.doe@gmail.com">
+                <label>Email:</label>
+                <input type="email" asp-for="Email" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="field">
                 <label>Description:</label>
-                <textarea>Software Developer</textarea>
-            </div>
-            <div class="field">
-                <label>Password:</label>
-                <input type="password" value="********">
+                <input type="text" asp-for="Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="buttonzone">
                 <button type="submit">Save</button>
@@ -37,4 +37,3 @@
         </form>
     </div>
 </div>
-

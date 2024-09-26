@@ -17,63 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
-build_property.ProjectDir = C:\Users\vsook\Downloads\WebApplication1\WebApplication1\
+build_property.ProjectDir = C:\Github\Stupid-my-web-app-by-asp-net\WebApplication1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\vsook\Downloads\WebApplication1\WebApplication1
+build_property.MSBuildProjectDirectory = C:\Github\Stupid-my-web-app-by-asp-net\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Home/Privacy.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Login/Index.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Login/Register.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Profile/EditProfile.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/CreatePost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxDcmVhdGVQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/GetPostById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxHZXRQb3N0QnlJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Profile/Index.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Shared/CustomLayout.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/CustomLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEN1c3RvbUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Shared/Error.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Shared/Menubar_index.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/Menubar_index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1lbnViYXJfaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/_ViewImports.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/_ViewStart.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vsook/Downloads/WebApplication1/WebApplication1/Views/Shared/_Layout.cshtml]
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx

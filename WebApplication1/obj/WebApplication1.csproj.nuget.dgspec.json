@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\vsook\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vsook\\Downloads\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vsook\\AppData\\Roaming\\NuGet\\NuGet.Config",
