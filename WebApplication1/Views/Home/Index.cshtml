@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApplication1.Models.Post>
 @section Styles {
     <link rel="stylesheet" href="~/css/cardtest.css" />
 }
@@ -6,35 +6,12 @@
     <a asp-controller="Post" asp-action="CreatePost" class="button-createpost">POST</a>
 </div>
 <div class="card-container">
-
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 1</h2>
-        <button>view</button>
-    </div>
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 2</h2>
-        <button>view</button>
-    </div>
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 2</h2>
-        <button>view</button>
-    </div>
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 2</h2>
-        <button>view</button>
-    </div>
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 2</h2>
-        <button>view</button>
-    </div>
-    <div class="card">
-        <img src="~/img/image1.jpg" alt="Board game image">
-        <h2>Name of the board game 2</h2>
-        <button>view</button>
-    </div>
+    @foreach (var post in Model)
+        {
+            <div class="card">
+                <img src="@post.Post_img" alt="Board game image">
+                <h2>@post.Post_name</h2>
+                <button>view</button>
+             </div>
+        }
 </div>
