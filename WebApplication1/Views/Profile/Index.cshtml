@@ -1,4 +1,4 @@
-﻿
+﻿@model User
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,16 +9,16 @@
     <div class="profile-display">
         <img src="~/img/avartar2.png" alt="Profile Avatar">
         <div class="field">
-            <span class="label">Name:</span> <span class="value">John Doe</span>
+            <span class="label">Name:</span> <span class="value">@Model.UserName</span>
         </div>
         <div class="field">
-            <span class="label">Age:</span> <span class="value">25</span>
+            <span class="label">Age:</span> <span class="value">@Model.Age</span>
         </div>
         <div class="field">
-            <span class="label">Gmail:</span> <span class="value">john.doe@gmail.com</span>
+            <span class="label">Email:</span> <span class="value">@Model.Email</span>
         </div>
         <div class="field">
-            <span class="label">Description:</span> <span class="value">Software Developer</span>
+            <span class="label">Description:</span> <span class="value">@Model.Description</span>
         </div>
         <div class="field">
             <span class="label">Password:</span> <span class="value">********</span>

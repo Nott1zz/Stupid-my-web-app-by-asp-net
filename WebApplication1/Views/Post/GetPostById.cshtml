@@ -1,0 +1,8 @@
+@model Post
+
+<h2>@Model.Post_name</h2>
+<p>@Model.Post_Detail</p>
+<img src="@Model.Post_img" alt="Image" />
+<p>Capacity: @Model.Capacity</p>
+<p>Date: @Model.Date?.ToString("MM/dd/yyyy")</p>
+<p>Location: @Model.Location</p>

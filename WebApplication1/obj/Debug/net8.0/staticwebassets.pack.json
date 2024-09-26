@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApplication1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\wwwroot\\css\\CreatorPost.css",
+      "PackagePath": "staticwebassets\\css\\CreatorPost.css"
+    },
+    {
       "Id": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\wwwroot\\css\\Profile.css",
       "PackagePath": "staticwebassets\\css\\Profile.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F1GhY3s7BU11tGPIpx5Y2ZS1Df1Elk0Jh9YI504x1Fc=",
+  "Hash": "r3jNlni5ZmbLMhdCUYQhs9Bw6BRsRCDJKNJ7ghL1g+Q=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\cardtest.css"
+    },
+    {
+      "Identity": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\wwwroot\\css\\CreatorPost.css",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "css/CreatorPost.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CreatorPost.css"
     },
     {
       "Identity": "C:\\Github\\Stupid-my-web-app-by-asp-net\\WebApplication1\\wwwroot\\css\\login.css",

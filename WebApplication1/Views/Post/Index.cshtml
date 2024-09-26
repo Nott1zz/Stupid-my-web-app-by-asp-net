@@ -1,4 +1,36 @@
-@{
-    ViewData["Title"] = "Index";
-}
-<p>hi</p>
+@model IEnumerable<WebApplication1.Models.Post>
+
+<h2>All Posts</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Post Name</th>
+            <th>Post Detail</th>
+            <th>Capacity</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.ID</td>
+                <td>@post.Post_name</td>
+                <td>@post.Post_Detail</td>
+                <td>@post.Capacity</td>
+                <td>@post.Date?.ToString("MM/dd/yyyy")</td>
+                <td>@post.Date?.ToString("HH:mm:ss")</td>
+                <td>@post.Location</td>
+                <td>
+                    <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="btn btn-primary">View</a>
+                    <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
