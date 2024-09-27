@@ -15,7 +15,7 @@ namespace WebApplication1.Models
         public string Post_name { get; set; }
 
         [MaxLength]
-        public string Post_Detail { get; set; }
+        public string Post_Detail { get; set; } = string.Empty;
 
         [MaxLength]
         public string Post_img { get; set; }= string.Empty;
@@ -25,6 +25,8 @@ namespace WebApplication1.Models
         public DateTime? Date { get; set; }
 
         public int Location { get; set; }
+
+        public int Participants { get; set; } = 0;
     }
 }
 

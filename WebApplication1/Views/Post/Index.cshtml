@@ -12,6 +12,7 @@
             <th>Date</th>
             <th>Time</th>
             <th>Location</th>
+            <th>Participants</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -26,9 +27,11 @@
                 <td>@post.Date?.ToString("MM/dd/yyyy")</td>
                 <td>@post.Date?.ToString("HH:mm:ss")</td>
                 <td>@post.Location</td>
+                <td>@post.Participants</td>
                 <td>
                     <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="btn btn-primary">View</a>
                     <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Post" asp-action="Delete_Post" asp-route-id="@post.ID" class="btn btn-primary">Delete</a>
                 </td>
             </tr>
         }
