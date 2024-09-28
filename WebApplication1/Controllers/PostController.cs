@@ -24,6 +24,14 @@ namespace WebApplication1.Controllers
 
             return View(posts);
         }
+
+        // Approve คนที่กด join เข้ามา
+        public IActionResult ApprovePost()
+        {
+            return View();
+        }
+
+
         public IActionResult CreatePost()
         {
             int? userId = HttpContext.Session.GetInt32("ID");

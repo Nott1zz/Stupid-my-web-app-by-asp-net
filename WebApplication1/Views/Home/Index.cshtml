@@ -1,17 +1,56 @@
 ﻿@model IEnumerable<WebApplication1.Models.Post>
 @section Styles {
-    <link rel="stylesheet" href="~/css/cardtest.css" />
+    <link rel="stylesheet" href="~/css/card-pop.css" />
 }
+
 <div class="createpos">
     <a asp-controller="Post" asp-action="CreatePost" class="button-createpost">POST</a>
 </div>
-<div class="card-container">
-    @foreach (var post in Model)
-        {
-            <div class="card">
-                <img src="@post.Post_img" alt="Board game image">
-                <h2>@post.Post_name</h2>
-                <button>view</button>
-             </div>
-        }
+<div class="content">
+    @foreach (var post in Model) {
+        <div class="card">
+            <a href="#popup1" class="card-link">@*<-- id post*@
+            <img src="@post.Post_img" alt="Board game image">
+            <h3 class="Location">@post.Post_name</h3>@*<-- อยากจะเปลี่ยนก็บอก*@
+            <h3 class="user">username</h3>
+            <p>27/9/2567</p>
+            <p>num : 8</p>
+            </a>
+            <a class="button" href="#popup1">Let me Pop up</a>@*<-- id post*@
+        </div>
+        <div id="popup1" class="overlay">@*<-- id post*@
+            <div class="popup">
+                <a class="close" href="" >&times;</a>
+                <div class="pop-content">
+                    <div class="pop-image">
+                        <img src="@post.Post_img" alt="Image">
+                    </div>
+                    <div class="pop-details">
+                        <h3>Post user : @post.Post_name</h3>
+                        <p>Location : </p>
+                        <p>Date : 27/9/2567 Statusdate</p> 
+                        <p>num : 3</p>
+                        <p>This is a description of the card. You can add more content here.</p>
+                    </div>
+                    <a href="#" class="view-button">request</a>@*<-- ทำให้คนโพสไม่เห็นก็พอ*@
+                </div>
+                
+                @*<block comment*@
+                <div class="showcomment">
+
+                    <div class="comment-post">@*<-- 1 comment*@
+                        <p class="comment-user">Nattawat :</p>
+                        <p class="comment-description">This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here.</p>
+                    </div>
+
+                </div>
+
+                <div class="pop-comment">
+                    <input type="text" placeholder="Leave a comment...">
+                    <button type="button">Submit</button>
+                </div>
+                
+            </div>
+        </div>
+    }
 </div>

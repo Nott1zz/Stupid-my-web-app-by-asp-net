@@ -1,0 +1,227 @@
+.content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    padding: 20px;
+    margin-top: 60px;
+    gap: 20px;
+    flex: 1;
+}
+.card {
+    flex: 0 0 auto;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow behind the card */
+    background-color: #fff; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+ 
+img {
+    border-radius: 30px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+}
+.card .location{
+    margin-bottom: 8px;
+}
+.card .user{
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+.card p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.5;
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+.card a{
+    margin-bottom: 5px;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card .button {
+    display: inline-block;
+    padding: 10px 25%;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #666;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+  
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.pop-content {
+    display: flex;
+    padding: 10px;
+    position: relative;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    z-index: 1000;
+  }
+.popup .close:hover {
+    color: #06D85F;
+}
+.view-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+}
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.pop-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.pop-details {
+    flex: 1;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.pop-details p {
+    margin: 5px 0;
+    line-height: 1;
+}
+.popup .showcomment {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.popup .comment-post {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.popup .comment-user {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.popup .comment-description {
+    flex: 1;
+}
+
+.pop-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.pop-comment input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.pop-comment button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pop-comment button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 1470px) {
+    .content {
+        justify-content: center;
+    }
+}
+@media (max-width: 891px) {
+    .content {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        margin-left: auto;
+    }
+}
+

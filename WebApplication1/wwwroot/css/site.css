@@ -1,118 +1,104 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-nav {
-  padding: 5px 1%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #444;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  
-  .logo a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .dropbtn {
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    background-color: #444;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    right: 0;
-    z-index: 1;
-  }
-
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #84a0f4;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-  }
-}
-.slidebar {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 300px;
+html, body {
   height: 100%;
-  background-color: #444;
-  padding-top: 20px;
-  z-index: 10000;
-  a {
-      border-radius: 10px;
-      padding: 5% 10%;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-  }
-  
-  a:hover {
-      background-color: #84a0f4;
-  }
 }
-
-.slidebar.active {
-  display: block;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-.content {
-  margin-left: 300px;
-  padding: 20px;
-  margin-top: 60px;
+main {
   flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+nav {
+    padding: 5px 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    .logo a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .dropbtn {
+      border-color: #f1f1f1;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      right: 0;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #84a0f4;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+}
+.dropbtn.icon-btn {
+  display: none;
+}
+
+.Logozone{
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .hamburger {
-  display: none;
   cursor: pointer;
-}
-
-.userzone{
-  padding: 1px 10px;
-  display: flex;
-  justify-content: space-between;
+  margin-right: 20px;
 }
 
 .hamburger .line {
@@ -120,68 +106,100 @@ nav {
   height: 1px;
   background-color: #ffffff;
   display: block;
-  margin: 7px auto;
+  margin: 7px;
   transition: all 0.3s ease-in-out;
 }
 
+.slidebar, .slidebar-mini {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100%;
+    z-index: 10000;
+    background-color: #444;
+    padding-top: 20px;
+}
+
+.slidebar {
+    width: 300px;
+    display: none;
+}
+
+.slidebar-mini {
+    width: 75px;
+}
+
+.slidebar a, .slidebar-mini a {
+    border-radius: 10px;
+    padding: 5% 10%;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+.slidebar a {
+    font-size: 20px;
+    display: block;
+    justify-content: space-between;
+}
+
+.slidebar-mini a {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+}
+
+.slidebar a i {
+    margin-right: 20px;
+}
+
+.slidebar a:hover, .slidebar-mini a:hover {
+    background-color: #84a0f4;
+}
+
+.slidebar .a-Profile {
+    position: relative;
+    padding-top: 15px;
+}
+      
+.slidebar .a-Profile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 75%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+.slidebar.active {
+    display: block;
+}
+
+.slidebar-mini.active {
+    display: none;
+}
 
 footer {
-  position: static;
-  bottom: 0;
-  width: 100%;
-  line-height: 60px;
-  background-color: #777;
-    p{
-      margin-left: 250px;
-      margin-top: 4px;
-      font-size: 18px;
-      text-align: center;
-    }
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
 }
 
-@media screen and (max-width: 790px) {
-  .hamburger {
-    padding-left: 5px;
-    margin-top: 12%;
-    display: block;
-    cursor: pointer;
-  }
-  nav ul {
-    display: none;
-  }
-}
-  
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    nav {
+      padding: 5px 1%;
     }
-    .user-btn {
+
+    .dropbtn.user-btn {
       display: none;
     }
-    .icon-btn {
+    .dropbtn.icon-btn {
         display: inline-block;
     }
-    .slidebar {
-      display: none;
-    }
-    .content {
-        margin-left: auto;
-    }
-    footer p{
-      margin-left: auto;
-    }
-}
-@media (min-width: 769px) {
-  .user-btn {
-      display: inline-block;
-  }
-  .icon-btn {
-      display: none;
-  }
-}
 
-@media (max-width: 426px) {
-  nav {
-    padding: 7px 5%;
-  }
+    .slidebar-mini {
+      display: none;
+    }
 }
