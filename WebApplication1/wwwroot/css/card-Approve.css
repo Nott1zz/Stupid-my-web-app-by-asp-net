@@ -1,0 +1,72 @@
+.content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    padding: 20px;
+    margin-top: 60px;
+    gap: 20px;
+    flex: 1;
+}
+.card {
+    flex: 0 0 auto;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow behind the card */
+    background-color: #fff; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+img {
+    border-radius: 30px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+}
+h3{
+    margin-bottom: 8px;
+}
+.card p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.5;
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+.approve-btn, .deny-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80px;
+}
+
+.approve-btn:hover, .deny-btn:hover {
+    background-color: #c5c2c2;
+}
+
+@media (max-width: 1470px) {
+    .content {
+        justify-content: center;
+    }
+}
+@media (max-width: 891px) {
+    .content {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        margin-left: auto;
+    }
+}

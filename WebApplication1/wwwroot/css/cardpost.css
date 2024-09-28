@@ -1,0 +1,146 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    padding: 20px;
+    margin-top: 60px;
+    gap: 20px;
+    flex: 1;
+}
+
+.card {
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.buttnozone {
+    position: absolute;
+    right: 7px;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.content-button {
+    width: 100%;
+    display: block;
+    padding: 8px 12px;
+    margin: 4px 0;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.content-button:hover {
+    background-color: #0056b3;
+}
+
+.card-content {
+    display: flex;
+    padding: 10px;
+    position: relative;
+}
+
+.card-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.card-details {
+    flex: 1;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.card-details p {
+    margin: 5px 0;
+    line-height: 1;
+}
+.showcomment {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.comment-post {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.comment-user {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.comment-description {
+    flex: 1;
+}
+
+.card-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.card-comment input {
+    width: 75%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.card-comment button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card-comment button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .content{
+        margin-left: auto;
+    }
+}

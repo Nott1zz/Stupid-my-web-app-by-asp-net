@@ -11,32 +11,42 @@
 <body>
     <header>
         <nav>
+            <div class="Logozone">
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
             <div class="logo">
                 <a asp-controller="Home" asp-action="Index">Navbar</a>
             </div>
-            <div class="userzone">
-                <div class="dropdown">
+            </div>
+
+            <div class="dropdown">
                     <a class="dropbtn user-btn" asp-controller="Login" asp-action="Index">Login</a>
-                </div>
+                    <button class="dropbtn icon-btn"><i class="fa-solid fa-key"></i></button>
             </div>
         </nav>
     </header>
+<main>
     <div class="slidebar">
-        <i class="bi bi-house navicon"></i><a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#"> <i class="fa-solid fa-clipboard"></i> You Post</a>
+        <a href="#"> <i class="fa-solid fa-users"></i> Atctivity</a>
+        <a href="#" class="a-Profile"> <i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+    <div class="slidebar-mini">
+        <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i></a>
+        <a href="#"><i class="fa-solid fa-clipboard"></i></a>
+        <a href="#"><i class="fa-solid fa-users"></i></a>
+        <a href="#" class="a-Profile"><i class="fa-solid fa-user"></i></a>
     </div>
 
-    <div class="content">
-        @RenderBody()
-    </div>
-
+    @RenderBody()
+</main>
     <footer>
-        <p>
-            &copy; 2567 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </p>
-    </footer>
+        <p>For learning</p>
+    </footer> 
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
