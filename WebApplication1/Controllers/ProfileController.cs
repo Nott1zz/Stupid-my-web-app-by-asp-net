@@ -19,6 +19,9 @@ namespace WebApplication1.Controllers
         public IActionResult Index()
         {
             int? userId = HttpContext.Session.GetInt32("ID");
+            ViewBag.UserStatus = HttpContext.Session.GetString("Status");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            
             var user = _db.User.FirstOrDefault(p => p.Id == userId);
             if (user == null)
             {
@@ -29,6 +32,8 @@ namespace WebApplication1.Controllers
         public IActionResult EditProfile()
         {
             int? userId = HttpContext.Session.GetInt32("ID");
+            ViewBag.UserStatus = HttpContext.Session.GetString("Status");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
             var user = _db.User.FirstOrDefault(p => p.Id == userId);
             if (user == null)
             {

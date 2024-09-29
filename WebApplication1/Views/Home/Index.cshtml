@@ -1,6 +1,53 @@
 ﻿@model IEnumerable<WebApplication1.Models.Post>
+
 @section Styles {
     <link rel="stylesheet" href="~/css/card-pop.css" />
+}
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    $('.pop-comment form').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        var form = $(this);
+        var actionUrl = form.attr('action');
+        var postId = form.attr('data-post-id');
+        var commentText = form.find('input[name="CommentText"]').val();
+
+        $.ajax({
+            type: 'POST',
+            url: actionUrl,
+            data: {
+                CommentText: commentText,
+                id: postId // Ensure this matches the parameter in your CreateComment method
+            },
+            success: function(response) {
+                console.log("AJAX Response:", response); // Log the full response
+                if (response.success) {
+                    var newComment = '<div class="comment-post">' +
+                    '<p class="comment-user">You:</p>' +
+                    '<p class="comment-description">' + response.comment.commentText + '</p>' + // ใช้ 'commentText' (ตัวเล็ก)
+                    '</div>';
+                    console.log("New Comment HTML:", newComment);
+                    $('.showcomment[data-post-id="' + postId + '"]').append(newComment);
+                    form.find('input[name="CommentText"]').val(''); // Clear the input
+                } else {
+                    console.error("Response not successful:", response);
+                }
+            },
+
+
+            error: function(xhr) {
+                console.error(xhr.responseText); // Log the error message
+                alert(xhr.responseText); // Display the error message
+            }
+        });
+    });
+});
+
+    </script>
 }
 
 <div class="createpos">
@@ -19,6 +66,7 @@
             <a class="button" href="#popup-@post.ID">Let me Pop up</a>
         </div>
         
+        <!-- Popup Section for Post Details -->
         <div id="popup-@post.ID" class="overlay">
             <div class="popup">
                 <a class="close" href="#">&times;</a>
@@ -34,21 +82,30 @@
                         <p>Amount : @post.Participants / @post.Capacity</p>
                         <p>@post.Post_Detail</p>
                     </div>
-                    <a href="#" class="view-button">request</a>
-                </div>
-                
-                <div class="showcomment">
-                    <div class="comment-post">
-                        <p class="comment-user">Nattawat :</p>
-                        <p class="comment-description">This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here.</p>
-                    </div>
+                    <a href="#" class="view-button">Request</a>
                 </div>
 
-                <div class="pop-comment">
-                    <input type="text" placeholder="Leave a comment...">
-                    <button type="button">Submit</button>
+                <div class="showcomment" data-post-id="@post.ID">
+                    @if (ViewBag.Comments != null) {
+                        var comments = ViewBag.Comments as IEnumerable<WebApplication1.Models.Comment>;
+                        foreach (var comment in comments.Where(c => c.PostID == post.ID)) {
+                            <div class="comment-post">
+                                <p class="comment-user">@(ViewBag.Usernames.ContainsKey(comment.UserID) ? ViewBag.Usernames[comment.UserID] : "Unknown User") :</p>
+                                <p class="comment-description">@comment.CommentText</p>
+                            </div>
+                        }
+                    } else {
+                        <p>No comments yet.</p>
+                    }
                 </div>
-                
+
+                <!-- Comment Submission Form -->
+                <div class="pop-comment">
+                    <form method="post" asp-controller="Home" asp-action="CreateComment" data-post-id="@post.ID">
+                        <input type="text" name="CommentText" placeholder="Leave a comment..." required>
+                        <button type="Submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     }
