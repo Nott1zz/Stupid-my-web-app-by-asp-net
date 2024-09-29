@@ -43,28 +43,43 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateComment(string CommentText, int? id)
+public IActionResult CreateComment(string CommentText, int? id)
+{
+    int? userId = HttpContext.Session.GetInt32("ID");
+
+    if (id == null || userId == null)
+    {
+        return BadRequest("Post ID or User ID is missing.");
+    }
+
+    // Check if CommentText is valid
+    if (string.IsNullOrWhiteSpace(CommentText))
+    {
+        return BadRequest("Comment text is required.");
+    }
+
+    Comment obj = new Comment
+    {
+        PostID = id.Value,
+        UserID = userId.Value,
+        CommentText = CommentText
+    };
+
+    _db.Comments.Add(obj);
+    _db.SaveChanges();
+
+    return Json(new
+    {
+        success = true,
+        comment = new
         {
-            int? userId = HttpContext.Session.GetInt32("ID");
-
-            if (id == null || userId == null)
-            {
-                return BadRequest("Post ID or User ID is missing.");
-            }
-
-            Comment obj = new Comment
-            {
-                PostID = id.Value,
-                UserID = userId.Value,
-                CommentText = CommentText
-            };
-
-            
-            _db.Comments.Add(obj);
-            _db.SaveChanges();
-
-            return RedirectToAction("Index");
+            CommentText = obj.CommentText,
+            UserID = obj.UserID,
+            CreatedAt = obj.CreatedAt // Optionally include the creation time
         }
+    });
+}
+
 
 
 
