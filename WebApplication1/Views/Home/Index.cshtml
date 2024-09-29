@@ -19,6 +19,7 @@
             <a class="button" href="#popup-@post.ID">Let me Pop up</a>
         </div>
         
+        <!-- Popup Section for Post Details -->
         <div id="popup-@post.ID" class="overlay">
             <div class="popup">
                 <a class="close" href="#">&times;</a>
@@ -34,21 +35,30 @@
                         <p>Amount : @post.Participants / @post.Capacity</p>
                         <p>@post.Post_Detail</p>
                     </div>
-                    <a href="#" class="view-button">request</a>
-                </div>
-                
-                <div class="showcomment">
-                    <div class="comment-post">
-                        <p class="comment-user">Nattawat :</p>
-                        <p class="comment-description">This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here.</p>
-                    </div>
+                    <a href="#" class="view-button">Request</a>
                 </div>
 
-                <div class="pop-comment">
-                    <input type="text" placeholder="Leave a comment...">
-                    <button type="button">Submit</button>
+                <div class="showcomment">
+                    @if (ViewBag.Comments != null) {
+                        var comments = ViewBag.Comments as IEnumerable<WebApplication1.Models.Comment>;
+                        foreach (var comment in comments.Where(c => c.PostID == post.ID)) {
+                            <div class="comment-post">
+                                <p class="comment-user">@(ViewBag.Usernames.ContainsKey(comment.UserID) ? ViewBag.Usernames[comment.UserID] : "Unknown User") :</p>
+                                <p class="comment-description">@comment.CommentText</p>
+                            </div>
+                        }
+                    } else {
+                        <p>No comments yet.</p>
+                    }
                 </div>
-                
+
+                <!-- Comment Submission Form -->
+                <div class="pop-comment">
+                    <form method="post" asp-controller="Home" asp-action="CreateComment" asp-route-id="@post.ID">
+                        <input type="text" name="CommentText" placeholder="Leave a comment...">
+                        <button type="Submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     }

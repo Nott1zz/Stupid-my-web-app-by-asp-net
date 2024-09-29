@@ -1,5 +1,6 @@
 ﻿@{
     var userName = ViewBag.UserName; // ดึงชื่อผู้ใช้จาก ViewBag
+    var userStatus = ViewBag.UserStatus;
 }
 
 <!DOCTYPE html>
@@ -26,7 +27,14 @@
             </div>
             </div>
 
-            <div class="dropdown">
+            @if (ViewBag.userStatus == null){
+                <div class="dropdown">
+                    <a class="dropbtn user-btn" asp-controller="Login" asp-action="Index">Login</a>
+                    <button class="dropbtn icon-btn"><i class="fa-solid fa-key"></i></button>
+                </div>
+            }
+            else{
+                <div class="dropdown">
                 <button class="dropbtn user-btn">
                     @userName
                 </button>
@@ -35,7 +43,12 @@
                     <a asp-controller="Profile" asp-action="Index">Profile</a>
                     <a asp-controller="Login" asp-action="Logout">Logout</a>
                 </div>
-            </div>
+                </div>
+
+            }
+            
+
+            
         </nav>
     </header>
 <main>

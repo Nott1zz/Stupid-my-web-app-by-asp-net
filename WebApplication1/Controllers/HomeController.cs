@@ -32,10 +32,42 @@ namespace WebApplication1.Controllers
                 .Where(u => userIds.Contains(u.Id))
                 .ToDictionary(u => u.Id, u => u.UserName);
 
+            // Fetch comments for all posts
+            var comment_PostIds = posts.Select(p => p.ID).Distinct().ToList();
+            var comments = _db.Comments.Where(c => comment_PostIds.Contains(c.PostID)).ToList();
+
             ViewBag.Usernames = usernames;
+            ViewBag.Comments = comments;
 
             return View(posts);
         }
+
+        [HttpPost]
+        public IActionResult CreateComment(string CommentText, int? id)
+        {
+            int? userId = HttpContext.Session.GetInt32("ID");
+
+            if (id == null || userId == null)
+            {
+                return BadRequest("Post ID or User ID is missing.");
+            }
+
+            Comment obj = new Comment
+            {
+                PostID = id.Value,
+                UserID = userId.Value,
+                CommentText = CommentText
+            };
+
+            
+            _db.Comments.Add(obj);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
 
         public IActionResult Privacy()
         {
