@@ -9,40 +9,39 @@
 <div class="content">
     @foreach (var post in Model) {
         <div class="card">
-            <a href="#popup1" class="card-link">@*<-- id post*@
-            <img src="@post.Post_img" alt="Board game image">
-            <h3 class="Location">@post.Post_name</h3>@*<-- อยากจะเปลี่ยนก็บอก*@
-            <h3 class="user">username</h3>
-            <p>27/9/2567</p>
-            <p>num : 8</p>
+            <a href="#popup-@post.ID" class="card-link">
+                <img src="@post.Post_img" alt="Board game image">
+                <h3 class="Location">@post.Post_name</h3>
+                <h3 class="user">@(ViewBag.Usernames.ContainsKey(post.Post_by_id) ? ViewBag.Usernames[post.Post_by_id] : "Unknown User")</h3>
+                <p>Date : @post.Date</p>
+                <p>Amount : @post.Participants / @post.Capacity</p>
             </a>
-            <a class="button" href="#popup1">Let me Pop up</a>@*<-- id post*@
+            <a class="button" href="#popup-@post.ID">Let me Pop up</a>
         </div>
-        <div id="popup1" class="overlay">@*<-- id post*@
+        
+        <div id="popup-@post.ID" class="overlay">
             <div class="popup">
-                <a class="close" href="" >&times;</a>
+                <a class="close" href="#">&times;</a>
                 <div class="pop-content">
                     <div class="pop-image">
-                        <img src="@post.Post_img" alt="Image">
+                        <img src="@post.Post_img" alt="Post Image">
                     </div>
                     <div class="pop-details">
-                        <h3>Post user : @post.Post_name</h3>
-                        <p>Location : </p>
-                        <p>Date : 27/9/2567 Statusdate</p> 
-                        <p>num : 3</p>
-                        <p>This is a description of the card. You can add more content here.</p>
+                        <h2>Post Name: @post.Post_name</h2>
+                        <h3>Post user : @(ViewBag.Usernames.ContainsKey(post.Post_by_id) ? ViewBag.Usernames[post.Post_by_id] : "Unknown User")</h3>
+                        <p>Location : @post.Location</p>
+                        <p>Date : @post.Date</p> 
+                        <p>Amount : @post.Participants / @post.Capacity</p>
+                        <p>@post.Post_Detail</p>
                     </div>
-                    <a href="#" class="view-button">request</a>@*<-- ทำให้คนโพสไม่เห็นก็พอ*@
+                    <a href="#" class="view-button">request</a>
                 </div>
                 
-                @*<block comment*@
                 <div class="showcomment">
-
-                    <div class="comment-post">@*<-- 1 comment*@
+                    <div class="comment-post">
                         <p class="comment-user">Nattawat :</p>
                         <p class="comment-description">This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here.</p>
                     </div>
-
                 </div>
 
                 <div class="pop-comment">

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using System.Linq;
 
 namespace WebApplication1.Controllers
 {
@@ -11,7 +12,6 @@ namespace WebApplication1.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDBContext _db;
 
-        // รวม logger และ db ไว้ใน constructor เดียว
         public HomeController(ILogger<HomeController> logger, ApplicationDBContext db)
         {
             _logger = logger;
@@ -20,12 +20,20 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            // ตรวจสอบสถานะ session และส่งค่าไปยัง View
             ViewBag.UserStatus = HttpContext.Session.GetString("Status");
             int? userId = HttpContext.Session.GetInt32("ID");
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
 
             var posts = _db.Post.ToList();
+            
+            // Fetch usernames for all posts
+            var userIds = posts.Select(p => p.Post_by_id).Distinct().ToList();
+            var usernames = _db.User
+                .Where(u => userIds.Contains(u.Id))
+                .ToDictionary(u => u.Id, u => u.UserName);
+
+            ViewBag.Usernames = usernames;
+
             return View(posts);
         }
 
@@ -34,7 +42,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        // Action สำหรับ Logout
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

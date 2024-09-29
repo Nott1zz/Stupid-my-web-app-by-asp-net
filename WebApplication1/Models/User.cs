@@ -15,9 +15,10 @@ namespace WebApplication1.Models
         public string Description { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Username is required")]
-        public string UserName { get; set; }
+        public string UserName { get; set; } = string.Empty;
 
-        public string Password { get; set; } 
+        [Required]
+        public string Password { get; set; } = string.Empty;
 
     }
 }

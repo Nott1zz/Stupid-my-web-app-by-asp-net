@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using System.Linq;
+using System.Diagnostics;
 
 namespace WebApplication1.Controllers
 {
@@ -18,19 +19,21 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            int? userId = HttpContext.Session.GetInt32("ID");
+            var posts = _db.Post.ToList();
+            var userIds = posts.Select(p => p.Post_by_id).Distinct().ToList();
+            var usernames = _db.User
+                .Where(u => userIds.Contains(u.Id))
+                .ToDictionary(u => u.Id, u => u.UserName);
 
-            var posts = _db.Post.Where(p => p.Post_by_id == userId).ToList();
+            ViewBag.Usernames = usernames;
 
             return View(posts);
         }
 
-        // Approve คนที่กด join เข้ามา
         public IActionResult ApprovePost()
         {
             return View();
         }
-
 
         public IActionResult CreatePost()
         {
@@ -42,6 +45,7 @@ namespace WebApplication1.Controllers
             }
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreatePost(Post obj)
@@ -54,10 +58,7 @@ namespace WebApplication1.Controllers
                 {
                     obj.Post_img = "https://flowbite.com/docs/images/examples/image-1@2x.jpg";
                 }
-                if (string.IsNullOrEmpty(obj.Post_Detail))
-                {
-                    obj.Post_Detail = ""; 
-                }
+                obj.Post_Detail ??= "";
                 obj.Post_by_id = userId.Value;  
                 _db.Post.Add(obj);
                 _db.SaveChanges();
@@ -69,27 +70,37 @@ namespace WebApplication1.Controllers
                 return View("Error", "User ID not found in session.");
             }
         }
+
         [HttpGet]
         public IActionResult GetPostById(int id)
         {
             var post = _db.Post.FirstOrDefault(p => p.ID == id);
             if (post == null)
             {
-                return NotFound(); // Return 404 if post not found
+                return NotFound();
             }
-            return View(post); // Show the post if found
+
+            var username = _db.User
+                .Where(u => u.Id == post.Post_by_id)
+                .Select(u => u.UserName)
+                .FirstOrDefault();
+
+            ViewBag.Username = username;
+
+            return View(post);
         }
 
         public IActionResult Edit(int id)
-    {
-        int? userId = HttpContext.Session.GetInt32("ID");
-        var post = _db.Post.FirstOrDefault(p => p.ID == id && p.Post_by_id == userId);
-        if (post == null)
         {
-            return NotFound(); // หากไม่พบโพสต์ที่มี ID นั้น
+            int? userId = HttpContext.Session.GetInt32("ID");
+            var post = _db.Post.FirstOrDefault(p => p.ID == id && p.Post_by_id == userId);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
         }
-        return View(post); // ส่งข้อมูลไปยัง View Edit.cshtml
-    }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Post post)
@@ -103,43 +114,27 @@ namespace WebApplication1.Controllers
                     return NotFound();
                 }
 
-                // อัปเดตค่าต่าง ๆ
                 postInDb.Post_name = post.Post_name;
-                postInDb.Post_Detail = post.Post_Detail;
+                postInDb.Post_Detail = post.Post_Detail ?? "";
                 postInDb.Capacity = post.Capacity;
                 postInDb.Date = post.Date;
                 postInDb.Location = post.Location;
-
-                // ตรวจสอบว่าถ้า Post_img เป็นค่าว่างให้แทนที่ด้วยสตริงว่าง
-                if (string.IsNullOrEmpty(post.Post_img))
-                {
-                    postInDb.Post_img = ""; // หรือค่าอื่นถ้าต้องการ
-                }
-                else
-                {
-                    postInDb.Post_img = post.Post_img;
-                }
-                if (string.IsNullOrEmpty(post.Post_Detail))
-                {
-                    postInDb.Post_Detail = ""; // หรือค่าอื่นถ้าต้องการ
-                }
-                else
-                {
-                    postInDb.Post_Detail = post.Post_Detail;
-                }
+                postInDb.Post_img = string.IsNullOrEmpty(post.Post_img) ? "" : post.Post_img;
 
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(post); // ถ้าไม่สำเร็จ แสดงฟอร์มอีกครั้ง
+            return View(post);
         }
+
         [HttpGet]
         public IActionResult Delete_Post(int id)
         {
-            var post = _db.Post.FirstOrDefault(p => p.ID == id);
+            int? userId = HttpContext.Session.GetInt32("ID");
+            var post = _db.Post.FirstOrDefault(p => p.ID == id && p.Post_by_id == userId);
             if (post == null)
             {
-                return NotFound(); // Return 404 if post not found
+                return NotFound();
             }
             _db.Post.Remove(post);
             _db.SaveChanges();
