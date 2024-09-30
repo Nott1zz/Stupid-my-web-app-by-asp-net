@@ -233,3 +233,11 @@ img {
     }
 }
 
+.showcomment {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.comment-post {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
