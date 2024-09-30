@@ -87,7 +87,6 @@ public IActionResult CreateComment(string CommentText, int? id)
 
     Comment obj = new Comment
     {
-        CommentID = maxCommentId + 1,
         PostID = id.Value,
         UserID = userId.Value,
         CommentText = CommentText,
