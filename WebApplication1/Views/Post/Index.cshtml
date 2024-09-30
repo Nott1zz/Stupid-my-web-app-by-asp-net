@@ -2,84 +2,66 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/cardpost.css" />
 }
-
-<h2>All Posts</h2>
-
-@* <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Post Name</th>
-            <th>Post Detail</th>
-            <th>Capacity</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Participants</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var post in Model)
-        {
-            <tr>
-                <td>@post.ID</td>
-                <td>@post.Post_name</td>
-                <td>@post.Post_Detail</td>
-                <td>@post.Capacity</td>
-                <td>@post.Date?.ToString("MM/dd/yyyy")</td>
-                <td>@post.Date?.ToString("HH:mm:ss")</td>
-                <td>@post.Location</td>
-                <td>@post.Participants</td>
-                <td>
-                    <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="btn btn-primary">View</a>
-                    <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="btn btn-primary">Edit</a>
-                    <a asp-controller="Post" asp-action="Delete_Post" asp-route-id="@post.ID" class="btn btn-primary">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-    
-</table> *@
+@{
+    var Id = ViewBag.Id;
+    var userStatus = ViewBag.UserStatus;
+}
 
 <div class="content">
 @* card คนโพส *@
+    <div class="createpos">
+    <a asp-controller="Post" asp-action="CreatePost" class="button-createpost">POST</a>
+    </div>
+@foreach (var post in Model)
+{
+@if(Id == post.Post_by_id){
   <div class="card">
     <div class="close-button">&times;</div>
         <div class="card-content">
             <div class="card-image">
-              <img src="https://via.placeholder.com/150" alt="Image">
+              <img src="@post.Post_img" alt="Image">
             </div>
             <div class="card-details">
-                <h3>Post user : us01</h3>
-                <p>Location : </p>
-                <p>Date : 27/9/2567 Statusdate</p> 
-                <p>num : 3</p>
-                <p>This is a description of the card. You can add more content here.</p>
+                    <h2>Post Name: @post.Post_name</h2>
+                    <h3>Post user : @(ViewBag.Usernames.ContainsKey(post.Post_by_id) ? ViewBag.Usernames[post.Post_by_id] : "Unknown User")</h3>
+                    <p>Location : @post.Location</p>
+                    <p>Date : @post.Date</p> 
+                    <p>Amount : @post.Participants / @post.Capacity</p>
+                    @* <p>@post.Post_Detail</p>
+                    <p></p> *@
+                    <p>@Id</p>
             </div>
             <div class="buttnozone">
                 <a href="#" class="content-button">Edit</a>
                 <a href="#" class="content-button">view</a>
             </div>
         </div>
-        <div class="showcomment">
-            <div class="comment-post">
-                <p class="comment-user">Nattawat :</p>
-                <p class="comment-description">This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here. This is a description of the card. You can add more content here.</p>
-            </div>
-            <div class="comment-post">
-                <p class="comment-user">us01:</p>
-                <p class="comment-description">hi</p>
-            </div>
-        </div>
+                <div class="showcomment" data-post-id="@post.ID">
+                    @if (ViewBag.Comments != null) {
+                        var comments = ViewBag.Comments as IEnumerable<WebApplication1.Models.Comment>;
+                        foreach (var comment in comments.Where(c => c.PostID == post.ID)) {
+                            <div class="comment-post">
+                                <p class="comment-user">@(ViewBag.Usernames.ContainsKey(comment.UserID) ? ViewBag.Usernames[comment.UserID] : "Unknown User") :</p>
+                                <p class="comment-description">@comment.CommentText</p>
+                            </div>
+                        }
+                    } else {
+                        <p>No comments.</p>
+                    }
+                </div>
         <div class="card-comment">
-            <input type="text" placeholder="Leave a comment...">
-            <button type="button">Submit</button>
+            @* <input type="text" placeholder="Leave a comment...">
+            <button type="button">Submit</button> *@
+            <form method="post" asp-controller="Home" asp-action="CreateComment" data-post-id="@post.ID">
+                    <input type="text" name="CommentText" placeholder="Leave a comment..." >
+                    <button type="Submit">Submit</button>
+            </form>
         </div>
   </div>
-
+  }
+}
 @* card คนjoin *@
-  <div class="card">
+  @* <div class="card">
     <div class="close-button">&times;</div>
         <div class="card-content">
             <div class="card-image">
@@ -111,6 +93,6 @@
             <input type="text" placeholder="Leave a comment...">
             <button type="button">Submit</button>
         </div>
-  </div>
+  </div> *@
 
 </div>

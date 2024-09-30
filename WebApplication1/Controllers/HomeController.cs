@@ -37,6 +37,7 @@ namespace WebApplication1.Controllers
             var comments = _db.Comments.Where(c => comment_PostIds.Contains(c.PostID)).ToList();
 
             ViewBag.Usernames = usernames;
+            ViewBag.Id = userId;
             ViewBag.Comments = comments;
 
             return View(posts);

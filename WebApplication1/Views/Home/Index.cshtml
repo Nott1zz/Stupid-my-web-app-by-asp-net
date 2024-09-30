@@ -3,6 +3,10 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/card-pop.css" />
 }
+@{
+    var Id = ViewBag.Id;
+    var userStatus = ViewBag.UserStatus;
+}
 
 @section Scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -50,11 +54,11 @@
     </script>
 }
 
-<div class="createpos">
-    <a asp-controller="Post" asp-action="CreatePost" class="button-createpost">POST</a>
-</div>
+
 <div class="content">
+
     @foreach (var post in Model) {
+        
         <div class="card">
             <a href="#popup-@post.ID" class="card-link">
                 <img src="@post.Post_img" alt="Board game image">
@@ -82,7 +86,16 @@
                         <p>Amount : @post.Participants / @post.Capacity</p>
                         <p>@post.Post_Detail</p>
                     </div>
-                    <a href="#" class="view-button">Request</a>
+                    @if(Id == post.Post_by_id){
+                        <div class="buttnozone">
+                            <a href="#" class="view-button">Edit</a>
+                            <a href="#" class="view-button">view</a>
+                        </div>
+                    }else{
+                        <div class="buttnozone">
+                            <a href="#" class="view-button">Request</a>
+                        </div>
+                    }
                 </div>
 
                 <div class="showcomment" data-post-id="@post.ID">
