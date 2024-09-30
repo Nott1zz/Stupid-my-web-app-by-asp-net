@@ -19,6 +19,10 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.UserStatus = HttpContext.Session.GetString("Status");
+            int? userId = HttpContext.Session.GetInt32("ID");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+
             var posts = _db.Post.ToList();
             var userIds = posts.Select(p => p.Post_by_id).Distinct().ToList();
             var usernames = _db.User
@@ -26,6 +30,7 @@ namespace WebApplication1.Controllers
                 .ToDictionary(u => u.Id, u => u.UserName);
 
             ViewBag.Usernames = usernames;
+            ViewBag.Id = userId;
 
             return View(posts);
         }

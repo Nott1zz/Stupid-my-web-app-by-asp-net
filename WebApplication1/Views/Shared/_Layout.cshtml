@@ -38,7 +38,9 @@
                 <button class="dropbtn user-btn">
                     @userName
                 </button>
-                <button class="dropbtn icon-btn"><i class="fa-solid fa-user"></i></button>
+                <button class="dropbtn icon-btn">
+                    <i class="fa-solid fa-user"></i>
+                    </button>
                 <div class="dropdown-content">
                     <a asp-controller="Profile" asp-action="Index">Profile</a>
                     <a asp-controller="Login" asp-action="Logout">Logout</a>
@@ -54,15 +56,19 @@
 <main>
     <div class="slidebar">
         <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#"> <i class="fa-solid fa-clipboard"></i> You Post</a>
+        @if (ViewBag.userStatus != null){
+        <a asp-controller="Post" asp-action="Index"> <i class="fa-solid fa-clipboard"></i> You Post</a>
         <a href="#"> <i class="fa-solid fa-users"></i> Atctivity</a>
-        <a href="#" class="a-Profile"> <i class="fa-solid fa-user"></i> Profile</a>
+        <a asp-controller="Profile" asp-action="Index"> <i class="fa-solid fa-user"></i> Profile</a>
+        }
     </div>
     <div class="slidebar-mini">
         <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i></a>
-        <a href="#"><i class="fa-solid fa-clipboard"></i></a>
+        @if (ViewBag.userStatus != null){
+        <a asp-controller="Post" asp-action="Index"><i class="fa-solid fa-clipboard"></i></a>
         <a href="#"><i class="fa-solid fa-users"></i></a>
-        <a href="#" class="a-Profile"><i class="fa-solid fa-user"></i></a>
+        <a asp-controller="Profile" asp-action="Index"><i class="fa-solid fa-user"></i></a>
+        }
     </div>
 
         @RenderBody()

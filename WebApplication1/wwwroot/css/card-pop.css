@@ -122,17 +122,23 @@ img {
 .popup .close:hover {
     color: #06D85F;
 }
-.view-button {
+.buttnozone {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 15px;
+    right: 7px;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.view-button {
+    width: 100%;
+    display: block;
+    padding: 8px 12px;
+    margin: 4px 0;
     background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    display: inline-block;
+    border-radius: 4px;
 }
 .view-button:hover {
     background-color: #0056b3;
@@ -188,7 +194,9 @@ img {
     padding: 10px;
     border-top: 1px solid #ccc;
 }
-
+.pop-comment form{
+    width: 100%;
+}
 .pop-comment input {
     width: 90%;
     padding: 8px;
