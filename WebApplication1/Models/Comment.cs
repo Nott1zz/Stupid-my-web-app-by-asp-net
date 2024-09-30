@@ -10,7 +10,7 @@ namespace WebApplication1.Models
         public int CommentID { get; set; }
 
         [Required]
-        public string CommentText { get; set; }
+        public string CommentText { get; set; } = string.Empty;
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
