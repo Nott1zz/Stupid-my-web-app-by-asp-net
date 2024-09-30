@@ -32,8 +32,8 @@
                     <p>@Id</p>
             </div>
             <div class="buttnozone">
-                <a href="#" class="content-button">Edit</a>
-                <a href="#" class="content-button">view</a>
+                <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="content-button">Edit</a>
+                <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="content-button">view</a>
             </div>
         </div>
                 <div class="showcomment" data-post-id="@post.ID">
