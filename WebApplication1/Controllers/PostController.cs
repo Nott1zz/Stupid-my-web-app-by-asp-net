@@ -29,8 +29,12 @@ namespace WebApplication1.Controllers
                 .Where(u => userIds.Contains(u.Id))
                 .ToDictionary(u => u.Id, u => u.UserName);
 
+            var comment_PostIds = posts.Select(p => p.ID).Distinct().ToList();
+            var comments = _db.Comments.Where(c => comment_PostIds.Contains(c.PostID)).ToList();
+
             ViewBag.Usernames = usernames;
             ViewBag.Id = userId;
+            ViewBag.Comments = comments;
 
             return View(posts);
         }
