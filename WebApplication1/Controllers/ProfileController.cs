@@ -58,7 +58,8 @@ namespace WebApplication1.Controllers
             user.Age = obj.Age;
             user.Email = obj.Email;
             user.Description = obj.Description;
-            _db.SaveChanges();                
+            _db.SaveChanges();
+            HttpContext.Session.SetString("UserName", obj.UserName);                
             return RedirectToAction("Index");
         }
             

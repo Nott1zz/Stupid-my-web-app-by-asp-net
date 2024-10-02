@@ -58,7 +58,7 @@
         <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i>Home</a>
         @if (ViewBag.userStatus != null){
         <a asp-controller="Post" asp-action="Index"> <i class="fa-solid fa-clipboard"></i> You Post</a>
-        <a href="#"> <i class="fa-solid fa-users"></i> Atctivity</a>
+        <a asp-controller="Community" asp-action="Index"> <i class="fa-solid fa-users"></i> Atctivity</a>
         <a asp-controller="Profile" asp-action="Index"> <i class="fa-solid fa-user"></i> Profile</a>
         }
     </div>
@@ -66,7 +66,7 @@
         <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i></a>
         @if (ViewBag.userStatus != null){
         <a asp-controller="Post" asp-action="Index"><i class="fa-solid fa-clipboard"></i></a>
-        <a href="#"><i class="fa-solid fa-users"></i></a>
+        <a asp-controller="Community" asp-action="Index"><i class="fa-solid fa-users"></i></a>
         <a asp-controller="Profile" asp-action="Index"><i class="fa-solid fa-user"></i></a>
         }
     </div>

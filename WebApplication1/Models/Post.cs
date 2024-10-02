@@ -24,7 +24,7 @@ namespace WebApplication1.Models
 
         public DateTime? Date { get; set; } = DateTime.Now;
 
-        public int Location { get; set; } = 1 ;
+        public string Location { get; set; }= string.Empty;
 
         public int Participants { get; set; } = 0;
 

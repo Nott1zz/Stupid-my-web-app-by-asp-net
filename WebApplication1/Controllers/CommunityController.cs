@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using WebApplication1.Data;
@@ -8,25 +8,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class CommunityController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDBContext _db;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDBContext db)
+        public CommunityController(ApplicationDBContext db)
         {
-            _logger = logger;
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
             int? userId = HttpContext.Session.GetInt32("ID");
             ViewBag.UserStatus = HttpContext.Session.GetString("Status");
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
 
-            var posts = _db.Post
+            // Fetch the join events asynchronously
+            var joinEvents = await _db.Join_Event.Where(u => u.UserID == userId).ToListAsync();
+            ViewBag.myjoin = joinEvents;
+
+            // Fetch posts asynchronously
+            var posts = await _db.Post
                 .AsNoTracking()
                 .Select(p => new Post
                 {
@@ -40,16 +42,18 @@ namespace WebApplication1.Controllers
                     Location = p.Location,
                     Post_Detail = p.Post_Detail ?? string.Empty
                 })
-                .ToList();
-            
+                .ToListAsync();
+
+            // Fetch distinct user IDs and their corresponding usernames asynchronously
             var userIds = posts.Select(p => p.Post_by_id).Distinct().ToList();
-            var usernames = _db.User
+            var usernames = await _db.User
                 .AsNoTracking()
                 .Where(u => userIds.Contains(u.Id))
-                .ToDictionary(u => u.Id, u => u.UserName ?? "Unknown User");
+                .ToDictionaryAsync(u => u.Id, u => u.UserName ?? "Unknown User");
 
+            // Fetch comments asynchronously
             var comment_PostIds = posts.Select(p => p.ID).Distinct().ToList();
-            var comments = _db.Comments
+            var comments = await _db.Comments
                 .AsNoTracking()
                 .Where(c => comment_PostIds.Contains(c.PostID))
                 .Select(c => new Comment
@@ -60,7 +64,7 @@ namespace WebApplication1.Controllers
                     PostID = c.PostID,
                     UserID = c.UserID
                 })
-                .ToList();
+                .ToListAsync();
 
             ViewBag.Usernames = usernames;
             ViewBag.Id = userId;
@@ -68,6 +72,7 @@ namespace WebApplication1.Controllers
 
             return View(posts);
         }
+
 
         [HttpPost]
         public IActionResult CreateComment(string CommentText, int? id)
@@ -170,18 +175,6 @@ namespace WebApplication1.Controllers
             _db.SaveChanges();
 
             return Json(new { success = true, message = "Your request to join has been sent successfully." });
-        }
-
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

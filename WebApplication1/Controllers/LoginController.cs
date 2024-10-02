@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
                 if (user != null)
                 {
                     HttpContext.Session.SetString("Status", "Login");
-                    HttpContext.Session.SetString("UserName", obj.UserName);
+                    HttpContext.Session.SetString("UserName", user.UserName);
                     HttpContext.Session.SetInt32("ID", user.Id); 
                     return RedirectToAction("Index", "Home");
                 }
