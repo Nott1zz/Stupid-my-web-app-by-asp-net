@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Github\Stupid-my-web-app-by-asp-net\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Community/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Community/_CommentsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XF9Db21tZW50c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,16 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Home/_CommentsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ29tbWVudHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/ApprovePost.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxBcHByb3ZlUG9zdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/CreatePost.cshtml]
@@ -62,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Post/Manage_Participants.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxNYW5hZ2VfUGFydGljaXBhbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,10 +88,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/Menubar_index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1lbnViYXJfaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Github/Stupid-my-web-app-by-asp-net/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
