@@ -33,7 +33,7 @@
             </div>
             <div class="buttnozone">
                 <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="content-button">Edit</a>
-                <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="content-button">view</a>
+                @* <a asp-controller="Post" asp-action="GetPostById" asp-route-id="@post.ID" class="content-button">view</a> *@
                 <a asp-controller="Post" asp-action="Manage_Participants" asp-route-id="@post.ID" class="content-button">Manage</a>
             </div>
         </div>

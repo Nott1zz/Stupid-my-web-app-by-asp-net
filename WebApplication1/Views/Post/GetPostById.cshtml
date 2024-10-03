@@ -1,5 +1,7 @@
 @model Post
-
+@section Styles {
+    <link rel="stylesheet" href="~/css/cardpost.css" />
+}
 <h2>@Model.Post_name</h2>
 <p>@Model.Post_Detail</p>
 <img src="@Model.Post_img" alt="Image" />
