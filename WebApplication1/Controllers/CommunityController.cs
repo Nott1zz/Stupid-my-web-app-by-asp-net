@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
 
             // Fetch the join events asynchronously
-            var joinEvents = await _db.Join_Event.Where(u => u.UserID == userId).ToListAsync();
+            var joinEvents = await _db.Join_Event.Where(u => u.UserID == userId && u.Status == "Approve").ToListAsync();
             ViewBag.myjoin = joinEvents;
 
             // Fetch posts asynchronously
