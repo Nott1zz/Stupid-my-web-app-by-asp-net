@@ -7636,19 +7636,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\nottizrock\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\Stupid-my-web-app-by-asp-net1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "E:\\KMITL\\CEDT67_1\\Web Application\\Projectz\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\Stupid-my-web-app-by-asp-net1\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\Stupid-my-web-app-by-asp-net1\\WebApplication1\\obj\\",
+      "projectPath": "E:\\KMITL\\CEDT67_1\\Web Application\\Projectz\\Stupid-my-web-app-by-asp-net\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\nottizrock\\.nuget\\packages\\",
+      "outputPath": "E:\\KMITL\\CEDT67_1\\Web Application\\Projectz\\Stupid-my-web-app-by-asp-net\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nottizrock\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7726,7 +7731,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

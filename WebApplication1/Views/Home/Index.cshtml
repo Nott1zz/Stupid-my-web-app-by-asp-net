@@ -45,7 +45,46 @@
                 });
             }, 5000); 
         });
-
+    </script>
+   
+    <script>
+         /*SlideShow ???*/
+         let slideIndex = 1;
+    displaySlide(slideIndex);
+ 
+    function moveSlides(n) {
+        displaySlide(slideIndex += n);
+    }
+ 
+    function activeSlide(n) {
+        displaySlide(slideIndex = n);
+    }
+ 
+    /* Main function */
+    function displaySlide(n) {
+        let i;
+        let totalslides =
+            document.getElementsByClassName("slide");
+        let totaldots =
+            document.getElementsByClassName("footerdot");
+ 
+        if (n > totalslides.length) {
+            slideIndex = 1;
+        }
+ 
+        if (n < 1) {
+            slideIndex = totalslides.length;
+        }
+        for (i = 0; i < totalslides.length; i++) {
+            totalslides[i].style.display = "none";
+        }
+        for (i = 0; i < totaldots.length; i++) {
+            totaldots[i].className =
+                totaldots[i].className.replace(" active", "");
+        }
+        totalslides[slideIndex - 1].style.display = "block";
+        totaldots[slideIndex - 1].className += " active";
+    }
     </script>
 }
 
@@ -61,7 +100,7 @@
             </a>
             <a class="button" href="#popup-@post.ID">Let me Pop up</a>
         </div>
-        
+          
         <div id="popup-@post.ID" class="overlay">
             <div class="popup">
                 <a class="close" href="#">&times;</a>
@@ -77,6 +116,7 @@
                         <p>Amount : @post.Participants / @post.Capacity</p>
                         <p>@post.Post_Detail</p>
                     </div>
+
                     @if(Id == post.Post_by_id){
                         <div class="buttnozone">
                             <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.ID" class="view-button">Edit</a>
@@ -91,4 +131,40 @@
             </div>
         </div>
     }
+    <!-- Image container of the image slider -->
+    <div class="image-container">
+        <div class="slide">
+            <div class="slideNumber">1</div>
+            <img src=
+"https://www.geeksforgeeks.org/wp-content/uploads/html-768x256.png">
+        </div>
+        <div class="slide">
+            <div class="slideNumber">2</div>
+            <img src=
+"https://www.geeksforgeeks.org/wp-content/uploads/CSS-768x256.png">
+        </div>
+        <div class="slide">
+            <div class="slideNumber">3</div>
+            <img src=
+"https://www.geeksforgeeks.org/wp-content/uploads/jquery-banner.png">
+        </div>
+ 
+        <!-- Next and Previous icon to change images -->
+        <a class="previous" onclick="moveSlides(-1)">
+            <i class="fa fa-chevron-circle-left"></i>
+        </a>
+        <a class="next" onclick="moveSlides(1)">
+            <i class="fa fa-chevron-circle-right"></i>
+        </a>
+    </div>
+    <br>
+ 
+    <div style="text-align:center">
+        <span class="footerdot" onclick="activeSlide(1)">
+        </span>
+        <span class="footerdot" onclick="activeSlide(2)">
+        </span>
+        <span class="footerdot" onclick="activeSlide(3)">
+        </span>
+    </div>
 </div>

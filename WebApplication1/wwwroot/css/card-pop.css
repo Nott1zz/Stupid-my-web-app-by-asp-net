@@ -11,12 +11,12 @@
 .card {
     flex: 0 0 auto;
     width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 5px solid #6373b7;
+    border-radius: 30px;
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow behind the card */
-    background-color: #fff; 
+    background-color: #fff;  /* #bec9e7 #6373b7 #ebe4f2*/
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -29,7 +29,7 @@ img {
     border-radius: 30px;
     width: 100%;
     height: auto;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 .card .location{
     margin-bottom: 8px;
@@ -62,18 +62,21 @@ img {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #666;
+    color: #000;
+    background-color: #bec9e7;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 4px #999;
+    box-shadow: 0 4px #6373b7;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {background-color: #ebe4f2;
+    color: #000;
+}
 
 .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 2px #666;
+    background-color: #6373b7;
+    box-shadow: 0 2px #ebe4f2;
     transform: translateY(2px);
 }
   
@@ -83,7 +86,7 @@ img {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: #bec9e7; 
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
@@ -99,8 +102,9 @@ img {
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 70%;
+    width: 800px;
     position: relative;
+    left: 50px;
     transition: all 5s ease-in-out;
 }
 .pop-content {
@@ -120,45 +124,51 @@ img {
     z-index: 1000;
   }
 .popup .close:hover {
-    color: #06D85F;
+    color: #6373b7;
 }
 .buttnozone {
-    position: absolute;
-    right: 7px;
+    position: relative;
+    right: 17px;
     bottom: 5px;
+    width: 27%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
+    gap: 10Px;
 }
 .view-button {
-    width: 100%;
+    width: 90%;
+    text-align: center;
     display: block;
     padding: 8px 12px;
-    margin: 4px 0;
-    background-color: #007bff;
+    margin: 4px 1px;
+    background-color: #6373b7;
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .view-button:hover {
-    background-color: #0056b3;
+    background-color: #ebe4f2;
+    color: #000;
 }
 
 .pop-image img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 4px;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 .pop-details {
     flex: 1;
-    margin-left: 2%;
+    margin-left: 60px;
     margin-top: 2%;
 }
 .pop-details p {
     margin: 5px 0;
-    line-height: 1;
+    line-height: 2;
 }
 .popup .showcomment {
     display: flex;
@@ -240,4 +250,91 @@ img {
 .comment-post {
     border-bottom: 1px solid #eee;
     padding: 10px 0;
+}
+
+
+
+
+
+/*SlideShow CSS*/
+img {
+    width: 100%;
+}
+ 
+.height {
+    height: 10px;
+}
+ 
+/* Image-container design */
+.image-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+}
+ 
+.next {
+    right: 0;
+}
+ 
+/* Next and previous icon design */
+.previous,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    margin-top: -25px;
+}
+ 
+/* caption decorate */
+.captionText {
+    color: #000000;
+    font-size: 14px;
+    position: absolute;
+    padding: 12px 12px;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+ 
+/* Slider image number */
+.slideNumber {
+    background-color: #5574C5;
+    color: white;
+    border-radius: 25px;
+    right: 0;
+    opacity: .5;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    position: absolute;
+}
+
+.fa {
+    font-size: 32px;
+}
+ 
+.fa:hover {
+    transform: rotate(360deg);
+    transition: 1s;
+    color: white;
+}
+ 
+.footerdot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    display: flex;
+    transition: background-color 0.5s ease;
+}
+ 
+.active,
+.footerdot:hover {
+    background-color: black;
 }
